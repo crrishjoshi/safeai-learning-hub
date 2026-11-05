@@ -2,7 +2,7 @@
 
 > Living document. Read this at any point to learn what has happened in the project and how API keys and data have been protected. Every change made by Claude, Antigravity, Codex, or any project contributor is logged here (newest entries at the top of the Change Log).
 
-_Last updated: 2026-11-05 20:04 GMT (project card pushed to GitHub; LinkedIn sharing pending)_
+_Last updated: 2026-11-05 20:08 GMT (project card pushed and LinkedIn post published successfully)_
 
 ### 2026-11-05 15:35 GMT — Added a public SafeAI project card for portfolio sharing
 
@@ -17,6 +17,16 @@ _Last updated: 2026-11-05 20:04 GMT (project card pushed to GitHub; LinkedIn sha
 ## 0. Reporting rule
 
 This file is the canonical project report and action log. Every future change, decision, test, dependency, configuration update, deployment, assumption, risk, and security check must be recorded here. Each entry must state what changed, which files or systems were affected, why it changed, what remains simulated, and the security/data impact.
+
+### 2026-11-05 20:08 GMT — Published the SafeAI project post on LinkedIn
+
+- **What changed:** Published the prepared SafeAI Learning Hub project summary from the user’s LinkedIn account after explicit confirmation. The post includes the public GitHub repository, project-card asset link, both hosted demos, rationale, usefulness, security boundary, prototype limitations and future work.
+- **Files/systems affected:** LinkedIn post, public GitHub repository, and this report. No application runtime code or environment configuration changed.
+- **Why it changed:** The user requested a portfolio-ready public explanation of why SafeAI was built, how it is useful, and where the inspectable source and demos can be found.
+- **What remains simulated:** LinkedIn sharing does not change the prototype’s status. AI provider calls, monitored safeguarding operations, production notifications, independent safety evaluation, formal legal/privacy review and real child use remain outside the supported claim.
+- **Tests or checks performed:** LinkedIn returned “Post successful”; the feed state contained the project text and GitHub repository URL; the composer closed after publication. GitHub already contained the verified project card and reports.
+- **Security and data-protection impact:** The post contains only public project information, fictional examples and public links. No API keys, passwords, tokens, provider responses, account identifiers or child data were shared.
+- **New assumptions, risks, or open decisions:** LinkedIn generated the repository link preview. The direct project-card link is included as the canonical visual asset; post engagement and external rendering are not controlled by the application.
 
 ### 2026-11-05 20:04 GMT — Pushed the portfolio image update to GitHub
 
