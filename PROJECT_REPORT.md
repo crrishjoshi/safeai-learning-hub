@@ -2,7 +2,7 @@
 
 > Living document. Read this at any point to learn what has happened in the project and how API keys and data have been protected. Every change made by Claude, Antigravity, Codex, or any project contributor is logged here (newest entries at the top of the Change Log).
 
-_Last updated: 2026-11-05 20:47 GMT (LinkedIn post independently verified on profile activity)_
+_Last updated: 2026-11-05 21:04 GMT (LinkedIn project/logo save attempted; profile persistence not verified)_
 
 ### 2026-11-05 15:35 GMT — Added a public SafeAI project card for portfolio sharing
 
@@ -17,6 +17,16 @@ _Last updated: 2026-11-05 20:47 GMT (LinkedIn post independently verified on pro
 ## 0. Reporting rule
 
 This file is the canonical project report and action log. Every future change, decision, test, dependency, configuration update, deployment, assumption, risk, and security check must be recorded here. Each entry must state what changed, which files or systems were affected, why it changed, what remains simulated, and the security/data impact.
+
+### 2026-11-05 21:04 GMT — LinkedIn Projects save did not persist on verification
+
+- **What changed:** Prepared the SafeAI Learning Hub entry in LinkedIn Projects with the public description, GitHub/report/demo links, five relevant skills, complete dates and the custom SafeAI project-card PNG. LinkedIn closed the editor after Save, but a fresh profile reload did not show the project or Projects section, so the entry is not claimed as published.
+- **Files/systems affected:** LinkedIn profile editor and this report. No project source, deployment configuration or environment file changed.
+- **Why it changed:** The user requested the project—not a post—with the appropriate SafeAI logo attached.
+- **What remains simulated:** LinkedIn profile persistence and media rendering are external platform behavior; SafeAI application functionality is unaffected.
+- **Tests or checks performed:** Confirmed the logo file chooser accepted `/tmp/safeai-linkedin.u4a4JJ/safeai-project-card.svg.png`; confirmed the draft showed the logo title and Save was enabled; after Save, waited for the editor to close and reloaded the profile; the profile still lacked `SafeAI Learning Hub` and a Projects section.
+- **Security and data-protection impact:** Only public project information and a fictional branding asset were entered. No API keys, passwords, tokens, provider responses, account identifiers or child data were transmitted.
+- **New assumptions, risks, or open decisions:** LinkedIn may be rejecting or delaying the project mutation without exposing an error in the in-app editor. The logo is present in the public GitHub repository, but LinkedIn project publication remains unverified and requires manual review or a different LinkedIn editing path.
 
 ### 2026-11-05 20:47 GMT — Verified the LinkedIn post on profile activity
 
