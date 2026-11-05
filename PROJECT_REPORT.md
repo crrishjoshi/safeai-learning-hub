@@ -2,7 +2,7 @@
 
 > Living document. Read this at any point to learn what has happened in the project and how API keys and data have been protected. Every change made by Claude, Antigravity, Codex, or any project contributor is logged here (newest entries at the top of the Change Log).
 
-_Last updated: 2026-11-05 20:08 GMT (project card pushed and LinkedIn post published successfully)_
+_Last updated: 2026-11-05 20:47 GMT (LinkedIn post independently verified on profile activity)_
 
 ### 2026-11-05 15:35 GMT — Added a public SafeAI project card for portfolio sharing
 
@@ -17,6 +17,16 @@ _Last updated: 2026-11-05 20:08 GMT (project card pushed and LinkedIn post publi
 ## 0. Reporting rule
 
 This file is the canonical project report and action log. Every future change, decision, test, dependency, configuration update, deployment, assumption, risk, and security check must be recorded here. Each entry must state what changed, which files or systems were affected, why it changed, what remains simulated, and the security/data impact.
+
+### 2026-11-05 20:47 GMT — Verified the LinkedIn post on profile activity
+
+- **What changed:** Rechecked the user’s LinkedIn profile activity after the post was not immediately visible in the main feed. The SafeAI post is present under Recent activity, with the complete project text, GitHub repository preview and hosted links. Direct post URL: `https://www.linkedin.com/feed/update/urn:li:activity:7524200845576409088/`.
+- **Files/systems affected:** LinkedIn profile activity and this report. No application code, deployment configuration or credentials changed.
+- **Why it changed:** Confirmed whether the requested public post had actually published and made the durable post URL easy to find.
+- **What remains simulated:** LinkedIn visibility and feed ranking are external platform behavior. The SafeAI application remains a hosted prototype with the limitations documented below.
+- **Tests or checks performed:** Opened `https://www.linkedin.com/in/crrishjoshi/recent-activity/all/`; confirmed the SafeAI text, GitHub preview image, post timestamp and impression count were visible; confirmed the post’s analytics activity identifier.
+- **Security and data-protection impact:** Only public project description and public links are present. No API keys, passwords, tokens, provider responses, account identifiers or child data were exposed.
+- **New assumptions, risks, or open decisions:** The main feed may not show every post immediately. Profile Recent activity is the authoritative place to confirm the post; external impressions and distribution remain outside project control.
 
 ### 2026-11-05 20:08 GMT — Published the SafeAI project post on LinkedIn
 
