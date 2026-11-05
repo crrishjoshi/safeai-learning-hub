@@ -2,11 +2,21 @@
 
 > Living document. Read this at any point to learn what has happened in the project and how API keys and data have been protected. Every change made by Claude, Antigravity, Codex, or any project contributor is logged here (newest entries at the top of the Change Log).
 
-_Last updated: 2026-11-05 15:17 GMT (environment template inclusion corrected before publication commit)_
+_Last updated: 2026-11-05 15:20 GMT (public GitHub repository pushed and verified; LinkedIn sharing pending)_
 
 ## 0. Reporting rule
 
 This file is the canonical project report and action log. Every future change, decision, test, dependency, configuration update, deployment, assumption, risk, and security check must be recorded here. Each entry must state what changed, which files or systems were affected, why it changed, what remains simulated, and the security/data impact.
+
+### 2026-11-05 15:20 GMT — SafeAI project published to GitHub
+
+- **What changed:** Committed and pushed the complete publishable SafeAI source package to `https://github.com/crrishjoshi/safeai-learning-hub` on the `main` branch. Commit: `108ba1c` (`Publish SafeAI Learning Hub PORT2 prototype`). GitHub confirmed the repository is public and the default branch is `main`.
+- **Files/systems affected:** Public GitHub repository, local Git remote `origin`, 69 committed source/documentation/configuration files, and this report. Local dependencies, build outputs, Vercel metadata, Supabase CLI metadata, agent settings and real environment files were excluded.
+- **Why it changed:** The project is now available as inspectable portfolio evidence with the rationale, implementation, security boundary, tests, limitations and future work documented alongside the code.
+- **What remains simulated:** The public repository documents a hosted PORT2 prototype. AI provider use, monitored safeguarding operations, external notifications, independent safety evaluation, formal legal/privacy review and real child use remain outside the supported claim.
+- **Tests or checks performed:** Before commit/push: `npm run lint` passed; `npm test` passed **63/63**; `npm run build` passed; `npm run scan` found **0 findings across 67 files**; `npm run evaluate:safety` passed; staged-file review found no key-like literals or secret files. After push, GitHub repository metadata and branch were read back successfully; local Git status is clean.
+- **Security and data-protection impact:** No API key, password, bearer token, provider response, real account or child data was uploaded. `.env.example` contains names only; real `.env`, `.vercel`, `.claude`, `supabase/.temp`, `node_modules` and `dist` remain excluded.
+- **New assumptions, risks, or open decisions:** The repository is public by explicit request. LinkedIn sharing should link to the public GitHub repo and public project report, while describing the work as a prototype rather than a production safeguarding service.
 
 ### 2026-11-05 15:17 GMT — Names-only environment template included
 
