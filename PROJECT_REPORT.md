@@ -2,7 +2,7 @@
 
 > Living document. Read this at any point to learn what has happened in the project and how API keys and data have been protected. Every change made by Claude, Antigravity, Codex, or any project contributor is logged here (newest entries at the top of the Change Log).
 
-_Last updated: 2026-11-05 15:40 GMT (project card refined and rendered; GitHub update pending push; LinkedIn sharing pending)_
+_Last updated: 2026-11-05 20:04 GMT (project card pushed to GitHub; LinkedIn sharing pending)_
 
 ### 2026-11-05 15:35 GMT — Added a public SafeAI project card for portfolio sharing
 
@@ -17,6 +17,16 @@ _Last updated: 2026-11-05 15:40 GMT (project card refined and rendered; GitHub u
 ## 0. Reporting rule
 
 This file is the canonical project report and action log. Every future change, decision, test, dependency, configuration update, deployment, assumption, risk, and security check must be recorded here. Each entry must state what changed, which files or systems were affected, why it changed, what remains simulated, and the security/data impact.
+
+### 2026-11-05 20:04 GMT — Pushed the portfolio image update to GitHub
+
+- **What changed:** Pushed commit `613fe76` (`Add SafeAI portfolio project card`) to the public `main` branch. The repository now includes the SafeAI project-card SVG and its README/report links.
+- **Files/systems affected:** Public GitHub repository, `README.md`, `docs/SAFEAI_PROJECT_REPORT.md`, `docs/safeai-project-card.svg`, and this report.
+- **Why it changed:** The requested LinkedIn post needs a recognisable visual asset and the public repository should contain the same asset referenced by the project report.
+- **What remains simulated:** The image is presentation-only. It does not change authentication, family records, AI provider calls, notifications or safeguarding operations.
+- **Tests or checks performed:** `npm run scan` passed with 0 findings across 68 files; `git diff --check` passed; the SVG was rendered to a PNG preview and visually checked; GitHub push completed successfully.
+- **Security and data-protection impact:** No keys, passwords, tokens, provider responses, identifiers or child data were added or published. The asset contains only fictional product branding and coursework context.
+- **New assumptions, risks, or open decisions:** LinkedIn post publication remains pending final UI action. The public repo is intentionally public by user request and continues to state prototype limitations.
 
 ### 2026-11-05 15:20 GMT — SafeAI project published to GitHub
 
