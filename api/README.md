@@ -1,0 +1,33 @@
+# Server boundary
+
+Vercel functions. Provider calls are server-side only and occur only for allowed or safe-adult-support child questions after the family has saved and tested a provider key. Each route verifies the Supabase session server-side and reads the caller's role and family from `family_members`, never from user metadata.
+
+The functions run in the parent Vercel project, which alone holds the server-only configuration. The child project's `vercel.child.json` routes `/api/(.*)` to `https://safeai-learning-hub-parent.vercel.app/api/$1`, so child requests reach the same functions with the child's own session token; the child project holds only browser-safe `VITE_` variables.
+
+| Route | Who | What |
+|---|---|---|
+| `POST /api/parent/provider-key` | parent | Validates, encrypts (AES-256-GCM, family- and provider-bound) and stores a provider key through a service-role-only function. Returns masked metadata only. |
+| `DELETE /api/parent/provider-key` | parent | Removes the family's encrypted key and its metadata. |
+| `GET /api/parent/children` | parent | Lists the family's children using the parent's own session, so RLS applies. |
+| `POST /api/parent/children` | parent | Creates a child Auth user (password hashed by Supabase Auth) and family-linked profile, at most 10 per family. Taken emails get the generic `child_account_create_failed`. Child sign-up is not exposed in the child app. |
+| `POST /api/parent/child-password` | parent | Sets a new password (12–72 characters, at most 72 bytes) for one of the caller's own children through Supabase Auth. Ownership is checked against `child_profiles` with the parent's `family_id`; unknown, malformed and other-family ids all get `404 child_not_found`. Returns `{ updated: true }` only, never the password. Weak passwords get `400 child_password_rejected`. After the password changes, every existing session of the child is revoked through the service-role-only `public.revoke_child_sessions` database function. If that step fails, the password has still changed and the route returns `502 { error: 'child_sessions_revoke_failed', updated: true }`; setting a password again retries the sign-out. |
+| `POST /api/ai/chat` | child | Loads the linked child's bounded parent-selected blocked topics, then applies server-side safety precedence. Explicit sexual content is blocked and notifies the parent without the wording. Urgent, blocked and approval states never call a provider. Allowed/support states use the family provider key when present, otherwise a prepared fallback. A provider failure returns `502` with the provider error code and honest text (a "busy, try again" message, or "connection needs checking" for a rejected key or exhausted quota), never the prepared "switched off" fallback; only `provider_authentication_failed` marks the provider `error`. Durable history stores the allowed/support wording, generic approval and blocked receipts, and assistant replies; urgent disclosure text is stored only as a protected safety event and safeguarding case, not as ordinary chat history. |
+| `POST /api/parent/provider-test` | parent | Sends a fixed, non-user test prompt through the selected server-side provider and updates masked connection metadata. Success sets the provider `active`; a rejected key sets it `error`; transient failures only update `last_tested_at`. Failures return `502 { error: <provider code> }`. Raw keys are never returned. |
+| `GET /api/parent/activity` | parent | Returns family-scoped history, approvals, protected alerts, child-labelled notifications and access settings for the parent dashboard. |
+| `POST /api/parent/approval` | parent | Resolves one pending approval in the caller's family and records the parent decision. |
+| `POST /api/parent/access` | parent | Persists child chat pause, notification settings and bounded parent-selected blocked topics for one linked child. Unknown topic ids are discarded server-side. |
+| `POST /api/parent/privacy-delete` | parent | Deletes the application's family records after an exact confirmation phrase; leaves the Supabase Auth login identity in place. |
+| `GET /api/child/activity` | child | Returns the child's own durable conversation receipts, approval status, generic notifications and current chat-access setting. Blocked and protected receipts never repeat unsafe or disclosure wording. |
+| `GET`/`POST /api/cron/purge` | Vercel Cron only | Runs the service-only retention purge when the `CRON_SECRET` bearer secret matches. |
+
+Parent accounts are created by Supabase Auth directly (`auth.signUp` with email confirmation), then the `create_parent_family` database function builds the family for the confirmed, signed-in caller. There is no public sign-up route.
+
+Errors are short codes (`authentication_required`, `forbidden`, `secure_backend_not_configured`, …) with no internal detail. Provider failures use `provider_authentication_failed`, `provider_quota_exceeded`, `provider_model_unavailable`, `provider_rate_limited`, `provider_overloaded`, `provider_bad_request`, `provider_timeout`, `provider_unreachable`, `provider_empty_response` or `provider_request_failed`; the provider's own message is never returned or logged. Responses are `no-store`. Raw keys are never returned, logged or echoed.
+
+Models: each provider has an ordered candidate list in `_lib/ai-provider.ts`. The optional `OPENAI_MODEL`, `ANTHROPIC_MODEL` or `GOOGLE_MODEL` environment variable is tried first. A candidate that is unavailable, rejects the request, is busy/overloaded, is rate-limited or returns an empty answer falls through to the next; any other failure (including a timeout) stops at once. Requests time out after 25 seconds.
+
+The private schema is not exposed to the Data API, so the server reaches it only through service-role-only database functions: `store_provider_credential`, `remove_provider_credential` and `read_provider_credential` for encrypted keys, and `create_safeguarding_case` for the protected queue. Never use `.schema('private')`.
+
+The service-role client is used only for credential functions, child-account creation, parent-initiated child password resets with session revocation, generic notification/metric writes, protected safeguarding queue writes, family-record deletion and retention purge. Everything else runs with the caller's session.
+
+Still needed before production: rate limiting and abuse controls, staffed specialist safeguarding routing, independent safety evaluation, output moderation beyond the current boundary, formal retention/legal review, audit/incident operations, external email/SMS notifications, Auth-identity deletion, and a re-encrypt job for secret rotation. The hosted two-site sync uses Supabase Realtime with short-polling fallback.

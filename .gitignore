@@ -1,0 +1,30 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets/
+
+# Dependencies / build
+node_modules/
+.next/
+dist/
+build/
+venv/
+.venv/
+__pycache__/
+
+# Logs / OS
+*.log
+.DS_Store
+._*
+*.tsbuildinfo
+coverage/
+.vercel/
+.vercel
+.env*
+.claude/
+supabase/.temp/
+!.env.example

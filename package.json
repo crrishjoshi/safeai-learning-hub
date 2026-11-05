@@ -1,0 +1,37 @@
+{
+  "name": "safeai-learning-hub",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev:child",
+    "dev:child": "vite --config apps/child/vite.config.ts",
+    "dev:parent": "vite --config apps/parent/vite.config.ts",
+    "build": "npm run build:child && npm run build:parent",
+    "build:child": "tsc -p apps/child/tsconfig.json && vite build --config apps/child/vite.config.ts",
+    "build:parent": "tsc -p apps/parent/tsconfig.json && vite build --config apps/parent/vite.config.ts",
+    "lint": "tsc -p apps/child/tsconfig.json --noEmit && tsc -p apps/parent/tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "test": "node --test scripts/safety.test.mjs scripts/walkthrough.test.mjs scripts/rls.test.mjs scripts/rls-db.test.mjs scripts/api.test.mjs",
+    "evaluate:safety": "node scripts/safety-evaluation.mjs",
+    "preview": "vite preview --config apps/child/vite.config.ts",
+    "scan": "node scripts/secret-scan.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.117.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@types/node": "24.10.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.4"
+  }
+}

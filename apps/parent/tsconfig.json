@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "../../node_modules/.tmp/parent.tsbuildinfo",
+    "allowImportingTsExtensions": true,
+    "paths": { "@safeai/shared": ["../../packages/shared/src/index.ts"] }
+  },
+  "include": ["src", "../../packages/shared/src"]
+}
