@@ -148,5 +148,6 @@ This is not a production safeguarding product. Remaining limitations include:
 - Child site: https://safeai-learning-hub-child.vercel.app/
 - Parent site: https://safeai-learning-hub-parent.vercel.app/
 - Source repository: https://github.com/crrishjoshi/safeai-learning-hub
+- Project card: [`docs/safeai-project-card.svg`](safeai-project-card.svg)
 - Engineering report: [`PROJECT_REPORT.md`](../PROJECT_REPORT.md)
 

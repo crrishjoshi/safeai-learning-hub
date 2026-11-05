@@ -84,5 +84,5 @@ The current gate is recorded in [`PROJECT_REPORT.md`](PROJECT_REPORT.md). The la
 
 This is a PORT2 prototype, not production family software. Real deployment would still need specialist safeguarding operations, independent safety evaluation, formal accessibility and usability testing, age-appropriate design and DPIA review, retention/deletion policy, rate limiting, monitored notifications, incident response and a decision about whether real child use is appropriate. The safeguarding queue is an operational foundation only; it is not an emergency service.
 
-For the rationale, design decisions, acceptance evidence, security status, known limitations and future work, read [`docs/SAFEAI_PROJECT_REPORT.md`](docs/SAFEAI_PROJECT_REPORT.md).
+For the rationale, design decisions, acceptance evidence, security status, known limitations and future work, read [`docs/SAFEAI_PROJECT_REPORT.md`](docs/SAFEAI_PROJECT_REPORT.md). The [project card](docs/safeai-project-card.svg) is included for portfolio sharing.
 

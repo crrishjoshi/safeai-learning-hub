@@ -2,7 +2,17 @@
 
 > Living document. Read this at any point to learn what has happened in the project and how API keys and data have been protected. Every change made by Claude, Antigravity, Codex, or any project contributor is logged here (newest entries at the top of the Change Log).
 
-_Last updated: 2026-11-05 15:20 GMT (public GitHub repository pushed and verified; LinkedIn sharing pending)_
+_Last updated: 2026-11-05 15:40 GMT (project card refined and rendered; GitHub update pending push; LinkedIn sharing pending)_
+
+### 2026-11-05 15:35 GMT — Added a public SafeAI project card for portfolio sharing
+
+- **What changed:** Added an accessible SVG project card using the existing SafeAI purple/blob visual identity so the LinkedIn post can include a clear visual asset rather than only text links.
+- **Files affected:** `docs/safeai-project-card.svg`, `README.md`, `docs/SAFEAI_PROJECT_REPORT.md`, `PROJECT_REPORT.md`.
+- **Why it changed:** The public project package and LinkedIn sharing need a recognisable visual summary for portfolio and assessment audiences.
+- **What remains simulated:** The card is presentation-only; it does not change product behavior, authentication, AI provider operation, or safeguarding capability.
+- **Tests or checks performed:** SVG is self-contained, has a title and description, uses no external assets, scripts, URLs, keys, or child data, and was rendered to a square PNG preview for social sharing without clipping. Existing quality-gate results remain valid pending the documentation-only push.
+- **Security and data-protection impact:** No secrets, API keys, identifiers, telemetry, or real-person data were added. The asset is static and safe to publish.
+- **New assumptions, risks, or open decisions:** LinkedIn may render the SVG as a link preview but may require a raster image for direct media upload; if so, the public GitHub asset remains available as the canonical visual.
 
 ## 0. Reporting rule
 

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">SafeAI Learning Hub project card</title>
+  <desc id="desc">SafeAI Learning Hub, an educational AI safety and parent oversight prototype.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11182a"/>
+      <stop offset="1" stop-color="#2a205d"/>
+    </linearGradient>
+    <linearGradient id="blob" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b7a6ff"/>
+      <stop offset="1" stop-color="#6348e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" rx="48" fill="url(#background)"/>
+  <circle cx="1040" cy="130" r="220" fill="#8d75ff" opacity=".12"/>
+  <circle cx="1100" cy="1020" r="280" fill="#6f55ee" opacity=".1"/>
+  <rect x="150" y="125" width="220" height="220" rx="64" fill="url(#blob)"/>
+  <circle cx="220" cy="225" r="16" fill="#fff"/>
+  <circle cx="300" cy="225" r="16" fill="#fff"/>
+  <text x="425" y="225" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="78" font-weight="750">SafeAI</text>
+  <text x="430" y="300" fill="#b9b4ff" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="650" letter-spacing="5">LEARNING HUB</text>
+  <text x="150" y="555" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="50" font-weight="650">Learning with clear</text>
+  <text x="150" y="620" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="50" font-weight="650">safety boundaries.</text>
+  <text x="150" y="745" fill="#c6c9dc" font-family="Inter,Arial,sans-serif" font-size="28">Educational generative-AI safety</text>
+  <text x="150" y="790" fill="#c6c9dc" font-family="Inter,Arial,sans-serif" font-size="28">and parent oversight prototype</text>
+  <text x="150" y="930" fill="#aaa3ff" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="650">IST4000 Explore PORT2</text>
+  <text x="150" y="975" fill="#aaa3ff" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="650">React · TypeScript · Supabase · Vercel</text>
+</svg>
